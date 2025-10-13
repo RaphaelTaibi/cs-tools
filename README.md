@@ -12,7 +12,7 @@
 - 🔹 **Utility functions** — handy helpers to make your code cleaner and more efficient  
 - 🔹 **Modular architecture** — import only what you need (`@cs-tools/ui`, `@cs-tools/utils`, `@cs-tools/hooks`)  
 - 🔹 **TypeScript-first** — robust typings for better developer experience  
-- 🔹 **Cross-framework friendly** — works well with React, Next.js, Angular (for utils/hooks)  
+- 🔹 **Cross-framework friendly** — works well with React, Next.js, Angular (for utils/hooks) /** In developement / React ONLY at this moment **/
 
 ---
 
