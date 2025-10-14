@@ -11,12 +11,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /** Default Color (light mode) **/
+  --cs-bg-primary: #ffffff;
+  --cs-bg-secondary: #f9fafb;
+  --cs-text-primary: #111827;
+  --cs-text-secondary: #6b7280;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
 }
+/* Tailwind Clone CSS Dark Mode Compatile with/without Tailwind */
+.dark {
+  --cs-bg-primary: #1f2937;
+  --cs-bg-secondary: #111827;
+  --cs-text-primary: #f9fafb;
+  --cs-text-secondary: #d1d5db;
+}
+.cs-bg-primary { background-color: var(--cs-bg-primary);}
+.cs-text-primary { color: var(--cs-text-primary);}
 
 /* Styles de fallback si Tailwind ne charge pas */
 .bg-gray-50 { background-color: #f9fafb !important; }
