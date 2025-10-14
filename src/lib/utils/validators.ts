@@ -4,10 +4,20 @@ export const isValidEmail = (email: string): boolean => {
   return emailRegex.test(email);
 };
 
-// Phone number validation (French format)
-export const isValidPhoneNumber = (phone: string): boolean => {
-  const phoneRegex = /^(?:(?:\+33|0)[1-9])(?:[0-9]{8})$/;
-  return phoneRegex.test(phone.replace(/\s/g, ''));
+// Phone number validation (Format FR, US, UK, DE, INTERNATIONAL)
+export const isValidPhoneNumber = (
+  phone: string,
+  country: 'FR' | 'US' | 'UK' | 'DE' | 'INTERNATIONAL' = 'INTERNATIONAL' 
+): boolean => {
+  const cleanPhone =  phone.replace(/\s+/g, '');
+  const patterns = {
+    FR: /^(?:(?:\+33|0)[1-9])(?:[0-9]{8})$/,
+    US: /^(?:\+1)?[2-9]\d{2}[2-9]\d{2}\d{4}$/,
+    UK: /^(?:\+44)?[1-9]\d{8,9}$/,
+    DE: /^(?:\+49)?[1-9]\d{6,11}$/,
+    INTERNATIONAL: /^\+[1-9]\d{6,14}$/
+  };
+  return patterns[country].test(cleanPhone);
 };
 
 // Password strength validation
