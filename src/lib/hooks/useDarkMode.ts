@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 interface UseDarkModeReturn {
     isDark: boolean;
