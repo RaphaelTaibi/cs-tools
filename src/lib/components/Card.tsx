@@ -19,9 +19,9 @@ const Card: React.FC<CardProps> = ({
   const baseClasses = 'rounded-lg overflow-hidden';
   
   const variantClasses = {
-    default: 'bg-white border border-gray-200',
-    elevated: 'bg-white shadow-lg',
-    outlined: 'bg-white border-2 border-gray-300',
+    default: 'cs-bg-primary border cs-border',
+    elevated: 'cs-card-elevated',
+    outlined: 'cs-card-outlined',
   };
 
   const paddingClasses = {
@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className={classes} {...props}>
       {header && (
-        <div className="border-b border-gray-200 px-6 py-4">
+        <div className="border-b cs-border px-6 py-4">
           {header}
         </div>
       )}
@@ -47,7 +47,7 @@ const Card: React.FC<CardProps> = ({
       </div>
       
       {footer && (
-        <div className="border-t border-gray-200 px-6 py-4">
+        <div className="border-t cs-border px-6 py-4">
           {footer}
         </div>
       )}

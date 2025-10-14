@@ -64,7 +64,7 @@ export const validatePasswordStrength = (password: string): PasswordStrength => 
   return {
     score,
     feedback,
-    isStrong: score >= 4,
+    isStrong: score >= 5,
   };
 };
 

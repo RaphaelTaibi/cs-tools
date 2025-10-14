@@ -22,12 +22,12 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
   
-  const baseClasses = 'w-full px-3 py-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1';
+  const baseClasses = 'w-full px-3 py-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 cs-text-primary';
   
   const variantClasses = {
-    default: 'border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500',
-    filled: 'bg-gray-50 border border-transparent rounded-md focus:bg-white focus:ring-blue-500 focus:border-blue-500',
-    outline: 'border-2 border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500',
+    default: 'cs-input-bg border cs-border rounded-md focus:ring-blue-500 focus:border-blue-500',
+    filled: 'cs-bg-tertiary border border-transparent rounded-md focus:cs-bg-primary focus:ring-blue-500 focus:border-blue-500',
+    outline: 'cs-input-bg border-2 cs-border-strong rounded-md focus:ring-blue-500 focus:border-blue-500',
   };
 
   const errorClasses = error 
@@ -39,7 +39,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className="w-full">
       {label && (
-        <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor={inputId} className="block text-sm font-medium cs-text-primary mb-1">
           {label}
         </label>
       )}
@@ -47,7 +47,7 @@ const Input: React.FC<InputProps> = ({
       <div className="relative">
         {leftIcon && (
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <span className="text-gray-400">{leftIcon}</span>
+            <span className="cs-text-muted">{leftIcon}</span>
           </div>
         )}
         
@@ -59,7 +59,7 @@ const Input: React.FC<InputProps> = ({
         
         {rightIcon && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-            <span className="text-gray-400">{rightIcon}</span>
+            <span className="cs-text-muted">{rightIcon}</span>
           </div>
         )}
       </div>
@@ -71,7 +71,7 @@ const Input: React.FC<InputProps> = ({
       )}
       
       {helper && !error && (
-        <p className="mt-1 text-sm text-gray-500">
+        <p className="mt-1 text-sm cs-text-secondary">
           {helper}
         </p>
       )}

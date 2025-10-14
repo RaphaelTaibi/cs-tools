@@ -14,23 +14,68 @@
   /** Default Color (light mode) **/
   --cs-bg-primary: #ffffff;
   --cs-bg-secondary: #f9fafb;
+  --cs-bg-tertiary: #f3f4f6;
   --cs-text-primary: #111827;
   --cs-text-secondary: #6b7280;
+  --cs-text-muted: #9ca3af;
+  --cs-border: #e5e7eb;
+  --cs-border-strong: #d1d5db;
+  --cs-shadow: rgba(0, 0, 0, 0.1);
+  --cs-shadow-strong: rgba(0, 0, 0, 0.25);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--cs-bg-secondary);
+  color: var(--cs-text-primary);
 }
-/* Tailwind Clone CSS Dark Mode Compatile with/without Tailwind */
+
+/* Dark mode variables */
 .dark {
   --cs-bg-primary: #1f2937;
   --cs-bg-secondary: #111827;
+  --cs-bg-tertiary: #374151;
   --cs-text-primary: #f9fafb;
   --cs-text-secondary: #d1d5db;
+  --cs-text-muted: #9ca3af;
+  --cs-border: #374151;
+  --cs-border-strong: #4b5563;
+  --cs-shadow: rgba(0, 0, 0, 0.3);
+  --cs-shadow-strong: rgba(0, 0, 0, 0.5);
 }
-.cs-bg-primary { background-color: var(--cs-bg-primary);}
-.cs-text-primary { color: var(--cs-text-primary);}
+
+/* Utility classes using CSS variables */
+.cs-bg-primary { background-color: var(--cs-bg-primary); }
+.cs-bg-secondary { background-color: var(--cs-bg-secondary); }
+.cs-bg-tertiary { background-color: var(--cs-bg-tertiary); }
+.cs-text-primary { color: var(--cs-text-primary); }
+.cs-text-secondary { color: var(--cs-text-secondary); }
+.cs-text-muted { color: var(--cs-text-muted); }
+.cs-border { border-color: var(--cs-border); }
+.cs-border-strong { border-color: var(--cs-border-strong); }
+
+/* Complex utility classes */
+.cs-card-elevated {
+  background-color: var(--cs-bg-primary);
+  box-shadow: 0 1px 3px 0 var(--cs-shadow), 0 1px 2px 0 var(--cs-shadow);
+  border-radius: 0.5rem;
+}
+
+.cs-card-outlined {
+  background-color: var(--cs-bg-primary);
+  border: 2px solid var(--cs-border-strong);
+  border-radius: 0.5rem;
+}
+
+.cs-input-bg {
+  background-color: var(--cs-bg-primary);
+  border: 1px solid var(--cs-border);
+}
+
+.cs-input-bg:focus {
+  border-color: var(--cs-border-strong);
+}
 
 /* Styles de fallback si Tailwind ne charge pas */
 .bg-gray-50 { background-color: #f9fafb !important; }
