@@ -208,7 +208,7 @@ Works out of the box with React and Next.js projects. Simply import and use.
 
 ### Angular
 
-The utility functions can be used in Angular projects. For components and hooks, they are React-specific
+The utility functions can be used in Angular projects. For components and hooks, they are React-specific. Full Cross-Framework in working.
 
 ## Development
 
