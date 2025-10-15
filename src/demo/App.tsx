@@ -1,20 +1,19 @@
 import React from 'react';
 import './App.css';
-import { 
+import {
   Button,
-  Card, 
-  Input, 
-  useToggle, 
+  Card,
+  Input,
+  useToggle,
   useLocalStorage,
   useDarkMode,
-  useDebounce, 
-  validatePasswordStrength, 
+  useDebounce,
+  useWindowSize,
+  validatePasswordStrength,
   isValidEmail,
   formatCurrency,
   formatDate,
-} from '../lib';
-
-function App() {
+} from '../lib'; function App() {
   const toggle = useToggle(false);
   const { value: name, setValue: setName } = useLocalStorage('demoName', '');
   const darkMode = useDarkMode();
@@ -22,6 +21,7 @@ function App() {
   const [password, setPassword] = React.useState('');
   const [testValue, setTestValue] = React.useState('');
   const debouncedValue = useDebounce(testValue, 500);
+  const windowSize = useWindowSize();
 
   return (
     <div className="min-h-screen cs-bg-secondary py-8">
@@ -32,8 +32,8 @@ function App() {
             <h1 className="text-4xl font-bold cs-text-primary">
               🚀 CS-Tools Demo
             </h1>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={darkMode.toggle}
               leftIcon={darkMode.isDark ? "☀️" : "🌙"}
@@ -80,7 +80,6 @@ function App() {
               </div>
             </div>
           </Card>
-
           {/* Section Inputs */}
           <Card header={<h2 className="text-xl font-semibold">Inputs</h2>} variant="elevated">
             <div className="space-y-4">
@@ -109,22 +108,21 @@ function App() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                error={password && !validatePasswordStrength(password).isStrong ? 
+                error={password && !validatePasswordStrength(password).isStrong ?
                   validatePasswordStrength(password).feedback.join(', ') : ''}
-                helper={password && validatePasswordStrength(password).isStrong ? 
+                helper={password && validatePasswordStrength(password).isStrong ?
                   '✅ Strong password!' : 'Must contain: uppercase, lowercase, number, special character (8+ chars)'}
                 variant="outline"
               />
             </div>
           </Card>
-
           {/* Section Hooks */}
-          <Card 
-            header={<h2 className="text-xl font-semibold">Custom Hooks</h2>} 
+          <Card
+            header={<h2 className="text-xl font-semibold">Custom Hooks</h2>}
             variant="elevated"
             className="md:col-span-2"
           >
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 md:grid-rows-2 grid-flow-row">
               <div>
                 <h3 className="text-lg font-medium mb-3">useToggle</h3>
                 <div className="space-y-2">
@@ -142,19 +140,20 @@ function App() {
                   </div>
                 </div>
               </div>
-
               <div>
                 <h3 className="text-lg font-medium mb-3">useLocalStorage</h3>
                 <div className="space-y-2">
                   <p className="text-sm cs-text-secondary">
-                    Saved name: <span className="font-mono">{name || 'None'}</span>
+                    Name: <span className="font-mono">{name || 'None'}</span>
+                  </p>
+                  <p className="text-sm cs-text-secondary">
+                    Status: <span className="text-green-600">✅ Synced</span>
                   </p>
                   <p className="text-xs cs-text-muted">
-                    Try reloading the page, the name will be preserved!
+                    Reloads persist!
                   </p>
                 </div>
               </div>
-
               <div>
                 <h3 className="text-lg font-medium mb-3">useDarkMode</h3>
                 <div className="space-y-2">
@@ -177,12 +176,24 @@ function App() {
                   </div>
                 </div>
               </div>
+              <div>
+                <h3 className="text-lg font-medium mb-3">useWindowSize</h3>
+                <div className="space-y-2">
+                  <p className="text-sm cs-text-secondary">
+                    Width: <span className="font-mono">{windowSize.width || '---'}px</span>
+                  </p>
+                  <p className="text-sm cs-text-secondary">
+                    Height: <span className="font-mono">{windowSize.height || '---'}px</span>
+                  </p>
+                  <p className="text-xs cs-text-muted">
+                    Resize to test!
+                  </p>
+                </div>
+              </div>
             </div>
-          </Card>
-
-          {/* Section Utils */}
-          <Card 
-            header={<h2 className="text-xl font-semibold">Utility Functions</h2>} 
+          </Card>          {/* Section Utils */}
+          <Card
+            header={<h2 className="text-xl font-semibold">Utility Functions</h2>}
             variant="elevated"
             className="md:col-span-2"
           >
@@ -224,7 +235,7 @@ function App() {
           </Card>
 
           {/* Section Cards */}
-          <Card 
+          <Card
             header={<h2 className="text-xl font-semibold">Card Variants</h2>}
             variant="outlined"
             className="md:col-span-2"
@@ -249,8 +260,8 @@ function App() {
         </div>
 
         {/* Footer */}
-        <Card 
-          variant="elevated" 
+        <Card
+          variant="elevated"
           className="mt-8 text-center"
           footer={
             <p className="text-sm cs-text-muted">
