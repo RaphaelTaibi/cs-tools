@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
+import './storybook.css';
 import useToggle from '../lib/hooks/useToggle';
 import Button from '../lib/components/Button';
 import Card from '../lib/components/Card';
 
-const ToggleDemo: React.FC<{ initialValue?: boolean }> = ({ initialValue = false }) => {
+const ToggleStorie: React.FC<{ initialValue?: boolean }> = ({ initialValue = false }) => {
   const toggle = useToggle(initialValue);
 
   return (
@@ -42,9 +43,9 @@ const ToggleDemo: React.FC<{ initialValue?: boolean }> = ({ initialValue = false
     </Card>
   );
 };
-const meta: Meta<typeof ToggleDemo> = {
+const meta: Meta<typeof ToggleStorie> = {
   title: 'CS-Tools/Hooks/useToggle',
-  component: ToggleDemo,
+  component: ToggleStorie,
 
   parameters: {
     layout: 'centered',
@@ -59,7 +60,7 @@ const meta: Meta<typeof ToggleDemo> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof ToggleDemo>;
+type Story = StoryObj<typeof ToggleStorie>;
 
 export const Primary: Story = {
   args: {

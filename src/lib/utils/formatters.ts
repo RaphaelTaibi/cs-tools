@@ -6,12 +6,15 @@ export const formatDate = (
     options?: Intl.DateTimeFormatOptions
 ): string => {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
-  return new Intl.DateTimeFormat(locale, {
+  
+  // If no options provided, use default format
+  const defaultOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-    ...options,
-  }).format(dateObj);
+  };
+  
+  return new Intl.DateTimeFormat(locale, options || defaultOptions).format(dateObj);
 };
 
 export const formatCurrency = (
