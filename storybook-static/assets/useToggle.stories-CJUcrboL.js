@@ -1,9 +1,0 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";/* empty css                  */import{r as t}from"./iframe-CDv62SKn.js";import{B as r}from"./Button-jOmDPDFN.js";import{C as d}from"./Card-BLJn7Sw7.js";import"./preload-helper-PPVm8Dsz.js";function g(i=!1){const[s,a]=t.useState(i),n=t.useCallback(()=>{a(m=>!m)},[]),c=t.useCallback(()=>{a(!0)},[]),u=t.useCallback(()=>{a(!1)},[]);return{value:s,toggle:n,setTrue:c,setFalse:u,setValue:a}}const p=({initialValue:i=!1})=>{const s=g(i);return e.jsx(d,{header:e.jsx("h3",{className:"text-lg font-semibold",children:"useToggle Hook"}),variant:"outlined",className:"w-80",children:e.jsxs("div",{className:"space-y-4 text-center",children:[e.jsxs("div",{children:[e.jsx("div",{className:"text-6xl mb-2",children:s.value?"✅":"❌"}),e.jsx("p",{className:"text-xl font-medium",children:e.jsx("span",{className:s.value?"text-green-600":"text-red-600",children:s.value?"TRUE":"FALSE"})})]}),e.jsxs("div",{className:"grid grid-cols-2 gap-2",children:[e.jsx(r,{onClick:s.toggle,variant:"primary",size:"sm",children:"Toggle"}),e.jsx(r,{onClick:s.setTrue,variant:"outline",size:"sm",children:"Set True"}),e.jsx(r,{onClick:s.setFalse,variant:"outline",size:"sm",children:"Set False"}),e.jsx(r,{onClick:()=>s.setValue(!s.value),variant:"ghost",size:"sm",children:"setValue"})]})]})})},C={title:"CS-Tools/Hooks/useToggle",component:p,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{initialValue:{control:"boolean",description:"Valeur initiale du toggle"}}},l={args:{initialValue:!1}},o={args:{initialValue:!0}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
-  args: {
-    initialValue: false
-  }
-}`,...l.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
-  args: {
-    initialValue: true
-  }
-}`,...o.parameters?.docs?.source}}};const S=["Primary","StartTrue"];export{l as Primary,o as StartTrue,S as __namedExportsOrder,C as default};

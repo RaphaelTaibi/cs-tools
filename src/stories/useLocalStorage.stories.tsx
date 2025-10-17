@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import './storybook.css';
+
 import useLocalStorage from "../lib/hooks/useLocalStorage";
 import Button from "../lib/components/Button";
 import Card from "../lib/components/Card";

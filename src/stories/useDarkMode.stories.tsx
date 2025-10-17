@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import './storybook.css';
+
 import useDarkMode from '../lib/hooks/useDarkMode';
 import Button from '../lib/components/Button';
 import Card from '../lib/components/Card';
