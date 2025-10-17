@@ -7,10 +7,10 @@
  */
 
 // Export all components
-export * from './components';
+export * from './lib/components';
 
 // Export all hooks
-export * from './hooks';
+export * from './lib/hooks';
 
 // Export all utilities
-export * from './utils';
+export * from './lib/utils';
