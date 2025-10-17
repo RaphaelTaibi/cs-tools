@@ -28,8 +28,10 @@ function useDarkMode(defaultTheme?: 'light' | 'dark' | 'system'): UseDarkModeRet
     const applyTheme = useCallback((dark: boolean) => {
         if(dark) {
             document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
         } else {
             document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
         }
     }, []);
 

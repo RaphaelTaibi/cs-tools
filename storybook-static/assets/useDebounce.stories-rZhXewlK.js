@@ -1,0 +1,13 @@
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{r as m,e as l}from"./iframe-CyeslHGW.js";import{B as u}from"./Button-jOmDPDFN.js";import{C as x}from"./Card-BLJn7Sw7.js";import{I as h}from"./Input-ChAJI01D.js";import"./preload-helper-PPVm8Dsz.js";function g(r,s){const[a,t]=m.useState(r);return m.useEffect(()=>{const i=setTimeout(()=>{t(r)},s);return()=>{clearTimeout(i)}},[r,s]),a}const j=({delay:r=500})=>{const[s,a]=l.useState(""),t=g(s,r),[i,p]=l.useState(0);return l.useEffect(()=>{t&&p(d=>d+1)},[t]),e.jsx(x,{header:e.jsx("h3",{className:"text-lg font-semibold",children:"useDebounce Hook"}),variant:"outlined",className:"w-96",children:e.jsxs("div",{className:"space-y-4",children:[e.jsx("div",{children:e.jsx(h,{label:"Search (tapez rapidement!)",value:s,onChange:d=>a(d.target.value),placeholder:"Tapez pour voir le debounce..."})}),e.jsxs("div",{className:"cs-bg-tertiary p-3 rounded space-y-2",children:[e.jsxs("div",{children:[e.jsx("p",{className:"text-sm font-medium",children:"Valeur immédiate:"}),e.jsxs("p",{className:"text-lg cs-text-primary",children:['"',s,'"']})]}),e.jsxs("div",{children:[e.jsxs("p",{className:"text-sm font-medium",children:["Valeur debouncée (",r,"ms):"]}),e.jsxs("p",{className:"text-lg cs-text-primary",children:['"',t,'"']})]})]}),e.jsxs("div",{className:"cs-bg-tertiary p-3 rounded",children:[e.jsxs("p",{className:"text-sm cs-text-secondary",children:["🔍 Recherches effectuées: ",e.jsx("strong",{children:i})]}),e.jsxs("p",{className:"text-xs cs-text-secondary mt-1",children:["Sans debounce, il y aurait ",s.length," recherches!"]})]}),e.jsxs("div",{className:"flex gap-2",children:[e.jsx(u,{onClick:()=>a("React"),variant:"outline",size:"sm",children:'Set "React"'}),e.jsx(u,{onClick:()=>a(""),variant:"ghost",size:"sm",children:"Clear"})]})]})})},C={title:"CS-Tools/Hooks/useDebounce",component:j,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{delay:{control:{type:"number",min:100,max:2e3,step:100},description:"Délai de debounce en millisecondes"}}},c={args:{delay:500}},o={args:{delay:200}},n={args:{delay:1e3}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  args: {
+    delay: 500
+  }
+}`,...c.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    delay: 200
+  }
+}`,...o.parameters?.docs?.source}}};n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  args: {
+    delay: 1000
+  }
+}`,...n.parameters?.docs?.source}}};const T=["Primary","Fast","Slow"];export{o as Fast,c as Primary,n as Slow,T as __namedExportsOrder,C as default};
