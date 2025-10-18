@@ -1,13 +1,68 @@
-# cs-tools
+# cs-tools-kit 🚀
 
-cs-tools is a modular toolkit for web developers, built with TypeScript. It includes reusable UI components, custom React hooks, and handy utility functions to speed up your development workflow across React, Next.js, and Angular projects.
+> A modular toolkit for web developers, built with TypeScript. Includes reusable UI components, custom React hooks, and handy utility functions to speed up your development workflow.
 
-## Features
+[![NPM Version](https://img.shields.io/npm/v/cs-tools-kit?label=npm&color=blue)](https://www.npmjs.com/package/cs-tools-kit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
 
-- 🎨 **UI Components**: Reusable React components (Button, Input, Card, Spinner)
-- 🎣 **Custom Hooks**: Useful React hooks for common patterns
-- 🛠️ **Utility Functions**: Helper functions for strings, arrays, and objects
-- 📦 **TypeScript**: Full TypeScript support with type definitions
+## ✨ Features
+
+- 🎨 **UI Components**: Button, Input, Card, Spinner with multiple variants
+- 🪝 **React Hooks**: Dark mode, localStorage, debounce, window size, and more
+- 🛠️ **Utilities**: Email validation, password strength, formatters, and helpers
+- 🌙 **Dark Mode**: Built-in theme switching with system preference support
+- 🪟 **Glassmorphism**: Modern design effects for ghost buttons
+- 📱 **Responsive**: Mobile-first design approach
+- 🎯 **TypeScript**: Full type safety and IntelliSense support
+
+## 📦 Installation
+
+```bash
+npm install cs-tools-kit
+```
+
+## 🚀 Quick Start
+
+```tsx
+import React from 'react';
+import { Button, Input, Card, useDarkMode, useToggle } from 'cs-tools-kit';
+
+function App() {
+  const darkMode = useDarkMode();
+  const { value: showCard, toggle } = useToggle(false);
+
+  return (
+    <div className={darkMode.isDark ? 'dark' : 'light'}>
+      <Button 
+        variant="primary" 
+        onClick={darkMode.toggle}
+        leftIcon="🌙"
+      >
+        Toggle Theme
+      </Button>
+      
+      <Button 
+        variant="ghost" 
+        onClick={toggle}
+      >
+        Toggle Card
+      </Button>
+
+      {showCard && (
+        <Card 
+          header={<h2>Welcome!</h2>}
+          variant="elevated"
+        >
+          <Input 
+            label="Your name"
+            placeholder="Enter your name"
+          />
+        </Card>
+      )}
+    </div>
+  );
+}
 - 🚀 **Lightweight**: Clean and maintainable codebase
 - 🔧 **Modular**: Import only what you need
 

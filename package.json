@@ -1,17 +1,35 @@
 {
-  "name": "cs-tools",
-  "version": "1.0.0",
+  "name": "cs-tools-kit",
+  "version": "0.1.1-alpha.1",
   "type": "module",
   "description": "cs-tools is a modular toolkit for web developers, built with TypeScript. It includes reusable UI components, custom React hooks, and handy utility functions to speed up your development workflow.",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles": "./dist/style.css"
+  },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaphaelTaibi/cs-tools.git"
+  },
+  "homepage": "https://github.com/RaphaelTaibi/cs-tools#readme",
+  "bugs": {
+    "url": "https://github.com/RaphaelTaibi/cs-tools/issues"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc --emitDeclarationOnly && vite build",
+    "build:types": "tsc --emitDeclarationOnly",
     "preview": "vite preview",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
