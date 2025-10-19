@@ -1,6 +1,6 @@
 {
   "name": "cs-tools-kit",
-  "version": "0.1.1-alpha.1",
+  "version": "0.1.1",
   "type": "module",
   "description": "cs-tools is a modular toolkit for web developers, built with TypeScript. It includes reusable UI components, custom React hooks, and handy utility functions to speed up your development workflow.",
   "main": "dist/index.js",
