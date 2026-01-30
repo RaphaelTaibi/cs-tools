@@ -95,6 +95,9 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Clean Vitest cache
+        run: pnpm exec vitest --clearCache
+
       - name: Lint
         run: pnpm lint
 

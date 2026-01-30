@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import useOnlineStatus from './useOnlineStatus';
+import useOnlineStatus from './useOnlineStatus.js';
 
 describe('useOnlineStatus', () => {
   beforeEach(() => {

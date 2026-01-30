@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import useWindowSize from './useWindowSize';
+import useWindowSize from './useWindowSize.js';
 
 describe('useWindowSize', () => {
   beforeEach(() => {

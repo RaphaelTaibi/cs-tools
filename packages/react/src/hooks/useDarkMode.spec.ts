@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import useDarkMode from './useDarkMode';
+import useDarkMode from './useDarkMode.js';
 
 describe('useDarkMode', () => {
   beforeEach(() => {
