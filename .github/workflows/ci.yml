@@ -21,7 +21,8 @@ jobs:
       core: ${{ steps.filter.outputs.core }}
       react: ${{ steps.filter.outputs.react }}
     steps:
-      - name: Checkout
+      - name: Checkoutcommit et push le changement
+      
         uses: actions/checkout@v4
 
       - name: Detect changes
@@ -160,30 +161,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  sync-main-to-release:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Create or update sync PR
-        run: |
-          prNumber=$(gh pr list --base release --head main --state open -L 1 --json number -q '.[0].number')
-          if [ -z "$prNumber" ]; then
-            gh pr create \
-              --base release \
-              --head main \
-              --title "chore: sync main to release" \
-              --body "Automatic sync from main branch"
-            prNumber=$(gh pr list --base release --head main --state open -L 1 --json number -q '.[0].number')
-          fi
-          gh pr merge "$prNumber" --auto --merge
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest
