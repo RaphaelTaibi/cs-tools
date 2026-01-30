@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: ["main", "release"]
+    branches: ["*"]
   push:
-    branches: ["main", "release", "prod"]
+    branches: ["*"]
     tags:
       - "v*"
 
