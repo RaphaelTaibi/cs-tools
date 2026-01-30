@@ -94,7 +94,7 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
-      - name: Debug: list files in packages/react
+      - name: list files in packages/react
         run: |
           ls -l packages/react
           ls -l packages/react/src
