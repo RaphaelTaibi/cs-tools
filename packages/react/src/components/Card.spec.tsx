@@ -95,6 +95,7 @@ describe('Card', () => {
   });
 
   it('should accept HTML attributes', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { container } = render(
       <Card data-testid="custom-card">Content</Card>
     );
