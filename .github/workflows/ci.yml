@@ -142,13 +142,21 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Resolve npm dist-tag
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == *"-alpha."* ]]; then
+            echo "NPM_DIST_TAG=alpha" >> $GITHUB_ENV
+          else
+            echo "NPM_DIST_TAG=latest" >> $GITHUB_ENV
+          fi
+
       - name: Publish core
-        run: pnpm -C packages/core publish --access public
+        run: pnpm -C packages/core publish --access public --tag ${{ env.NPM_DIST_TAG }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish react
-        run: pnpm -C packages/react publish --access public
+        run: pnpm -C packages/react publish --access public --tag ${{ env.NPM_DIST_TAG }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -209,4 +217,4 @@ jobs:
       - name: Deploy to Vercel
         run: |
           echo "Deploying to Vercel..."
-          # À adapter avec ta config Vercel
+        
