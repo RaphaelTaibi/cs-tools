@@ -96,7 +96,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Clean Vitest cache
-        run: pnpm exec vitest --clearCache
+        run: pnpm -C packages/react exec vitest --clearCache
 
       - name: Lint
         run: pnpm lint
