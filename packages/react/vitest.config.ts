@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitest/config';
+import { join } from 'path';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
@@ -6,7 +7,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['./vitest.setup.ts'],
+    setupFiles: [join(__dirname, 'vitest.setup.ts')],
     include: ['src/**/*.spec.{ts,tsx}'],
     coverage: {
       provider: 'v8',
