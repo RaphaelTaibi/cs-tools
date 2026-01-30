@@ -28,8 +28,10 @@ describe('useWindowSize', () => {
 
   it('should update on window resize', () => {
     const { result } = renderHook(() => useWindowSize());
-    const _initialWidth = result.current.width;
-    const _initialHeight = result.current.height;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const initialWidth = result.current.width;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const initialHeight = result.current.height;
 
     act(() => {
       // Simulate window resize
