@@ -65,6 +65,29 @@ Works with any JavaScript/TypeScript framework:
 - ✅ Svelte
 - ✅ Vanilla JS/TS
 
+## 🤔 Why @cs-tools/core?
+
+This package contains all framework-agnostic logic from the cs-tools ecosystem.
+It is designed to be:
+- Tree-shakable
+- Framework independent
+- Fully typed with TypeScript
+- Reusable across React, Angular, Vue, or backend projects
+
+UI components and framework-specific bindings live in separate packages.
+
+
+## 🧪 Stability
+
+The API of `@cs-tools/core` follows semantic versioning.
+Breaking changes will only occur on major versions.
+
+
+## 🔗 Related Packages
+
+- [`@cs-tools/react`](../react) – React components and hooks built on top of core utilities
+
+
 ## 📄 License
 
 MIT © Taibi Raphael
