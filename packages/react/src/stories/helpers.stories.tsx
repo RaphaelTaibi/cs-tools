@@ -1,8 +1,11 @@
+/**
+ * Storybook demo for CS-Tools helpers
+ * @module stories/helpers.stories
+ */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
-
-import { 
+import {
   unique,
   groupBy,
   chunk,
@@ -17,6 +20,10 @@ import Card from '../components/Card.js';
 import Button from '../components/Button.js';
 import Input from '../components/Input.js';
 
+/**
+ * Main helpers story component
+ * @returns {JSX.Element}
+ */
 const HelpersStorie: React.FC = () => {
   const [arrayInput, setArrayInput] = React.useState('1,2,2,3,3,4,5');
   const [chunkSize, setChunkSize] = React.useState(3);
@@ -32,7 +39,10 @@ const HelpersStorie: React.FC = () => {
     { name: 'David', category: 'B', age: 28 },
   ];
 
-  // Debounce demo
+  /**
+   * Debounced update function for demo
+   * @param {string} text
+   */
   const debouncedUpdate = React.useMemo(
     () => debounce((text: string) => setDebouncedResult(text), 500),
     []
@@ -57,7 +67,7 @@ const HelpersStorie: React.FC = () => {
 
   return (
     <div className="grid gap-6 max-w-6xl mx-auto">
-      <Card 
+      <Card
         header={<h3 className="text-lg font-semibold">Helpers Demo</h3>}
         variant="outlined"
       >
@@ -73,16 +83,16 @@ const HelpersStorie: React.FC = () => {
                   onChange={(e) => setArrayInput(e.target.value)}
                   placeholder="1,2,2,3,3,4,5"
                 />
-                <ResultBox 
-                  label="Original Array" 
-                  result={sampleArray} 
+                <ResultBox
+                  label="Original Array"
+                  result={sampleArray}
                 />
-                <ResultBox 
-                  label="unique(array)" 
-                  result={unique(sampleArray)} 
+                <ResultBox
+                  label="unique(array)"
+                  result={unique(sampleArray)}
                 />
               </div>
-              
+
               <div className="space-y-3">
                 <Input
                   label="Chunk Size"
@@ -91,13 +101,13 @@ const HelpersStorie: React.FC = () => {
                   value={chunkSize}
                   onChange={(e) => setChunkSize(parseInt(e.target.value) || 1)}
                 />
-                <ResultBox 
-                  label="shuffle(array)" 
-                  result={shuffle([...sampleArray])} 
+                <ResultBox
+                  label="shuffle(array)"
+                  result={shuffle([...sampleArray])}
                 />
-                <ResultBox 
+                <ResultBox
                   label={`chunk(array, ${chunkSize})`}
-                  result={chunk(sampleArray, chunkSize)} 
+                  result={chunk(sampleArray, chunkSize)}
                 />
               </div>
             </div>
@@ -107,21 +117,21 @@ const HelpersStorie: React.FC = () => {
           <div>
             <h4 className="text-md font-semibold mb-4">📦 Object Helpers</h4>
             <div className="grid gap-4 md:grid-cols-2">
-              <ResultBox 
-                label="Sample Objects" 
-                result={sampleObjects} 
+              <ResultBox
+                label="Sample Objects"
+                result={sampleObjects}
               />
-              <ResultBox 
-                label="groupBy(objects, 'category')" 
-                result={groupBy(sampleObjects, item => item.category)} 
+              <ResultBox
+                label="groupBy(objects, 'category')"
+                result={groupBy(sampleObjects, item => item.category)}
               />
             </div>
-            
+
             <div className="grid gap-4 md:grid-cols-2 mt-4">
               <div className="space-y-3">
                 <p className="text-sm font-medium">Deep Clone Test:</p>
                 <CodeBlock>
-{`const original = { a: 1, b: { c: 2 } };
+                  {`const original = { a: 1, b: { c: 2 } };
 const cloned = deepClone(original);
 cloned.b.c = 99;
 
@@ -129,16 +139,16 @@ original.b.c: ${deepClone({ a: 1, b: { c: 2 } }).b.c}
 cloned.b.c: 99 (independent)`}
                 </CodeBlock>
               </div>
-              
+
               <div className="space-y-3">
                 <p className="text-sm font-medium">Type Checkers & Utils:</p>
                 <CodeBlock>
-{`isEmpty(''): ${isEmpty('')}
-isEmpty([]): ${isEmpty([])}
-isEmpty({}): ${isEmpty({})}
-isObject({}): ${isObject({})}
-isObject([]): ${isObject([])}
-generateId(): ${generateId()}`}
+                  {`isEmpty(''): ${isEmpty('')}
+                    isEmpty([]): ${isEmpty([])}
+                    isEmpty({}): ${isEmpty({})}
+                    isObject({}): ${isObject({})}
+                    isObject([]): ${isObject([])}
+                    generateId(): ${generateId()}`}
                 </CodeBlock>
               </div>
             </div>
@@ -160,7 +170,7 @@ generateId(): ${generateId()}`}
                   <p className="text-sm">Debounced: <code>{debouncedResult}</code></p>
                 </div>
               </div>
-              
+
               <div className="space-y-3">
                 <p className="text-sm font-medium">Throttle vs Debounce:</p>
                 <div className="cs-bg-tertiary p-3 rounded text-xs cs-text-secondary space-y-1">
@@ -177,28 +187,28 @@ generateId(): ${generateId()}`}
           <div>
             <h4 className="text-md font-semibold mb-4">🎮 Interactive Demo</h4>
             <div className="flex gap-3 flex-wrap">
-              <Button 
+              <Button
                 onClick={() => setArrayInput(shuffle(['🍎', '🍌', '🍊', '🍇', '🥝']).join(','))}
                 variant="primary"
                 size="sm"
               >
                 Random Fruits
               </Button>
-              <Button 
+              <Button
                 onClick={() => setArrayInput(unique(['a', 'b', 'a', 'c', 'b', 'd']).join(','))}
                 variant="outline"
                 size="sm"
               >
                 Remove Duplicates
               </Button>
-              <Button 
+              <Button
                 onClick={() => setDebounceText('Hello World!')}
-                variant="outline" 
+                variant="outline"
                 size="sm"
               >
                 Test Debounce
               </Button>
-              <Button 
+              <Button
                 onClick={() => {
                   setArrayInput('1,2,3,4,5,6,7,8,9,10');
                   setChunkSize(3);

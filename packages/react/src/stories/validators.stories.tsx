@@ -1,9 +1,13 @@
+/**
+ * Storybook demo for CS-Tools validators
+ * @module stories/validators.stories
+ */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
-import { 
-  isValidEmail, 
-  isValidPhoneNumber, 
+import {
+  isValidEmail,
+  isValidPhoneNumber,
   validatePasswordStrength,
   isValidUrl,
   isValidCreditCard,
@@ -12,12 +16,16 @@ import {
   isRequired,
   hasMinLength,
   hasMaxLength,
-  type PasswordStrength 
+  type PasswordStrength
 } from '@cs-tools/core';
 import Card from '../components/Card.js';
 import Input from '../components/Input.js';
 import Button from '../components/Button.js';
 
+/**
+ * Main validators story component
+ * @returns {JSX.Element}
+ */
 const ValidatorsStorie: React.FC = () => {
   // États pour tous les champs
   const [email, setEmail] = React.useState('test@example.com');
@@ -42,6 +50,10 @@ const ValidatorsStorie: React.FC = () => {
   const minLengthValid = hasMinLength(lengthField, 3);
   const maxLengthValid = hasMaxLength(lengthField, 10);
 
+  /**
+   * Validation result display
+   * @param {{ isValid: boolean; label: string; details?: string }} props
+   */
   const ValidationResult: React.FC<{ isValid: boolean; label: string; details?: string }> = ({ isValid, label, details }) => (
     <div className="flex items-center justify-between">
       <div>
@@ -54,6 +66,10 @@ const ValidatorsStorie: React.FC = () => {
     </div>
   );
 
+  /**
+   * Test example display
+   * @param {{ title: string; examples: string[]; validator: (value: string) => boolean }} props
+   */
   const TestExample: React.FC<{ title: string; examples: string[]; validator: (value: string) => boolean }> = ({ title, examples, validator }) => (
     <div className="cs-bg-tertiary p-3 rounded space-y-2">
       <h5 className="text-sm font-medium">{title} - Test Examples:</h5>
