@@ -1,4 +1,6 @@
-import '@testing-library/jest-dom/vitest';
+import * as matchers from '@testing-library/jest-dom/matchers';
+import { expect } from 'vitest';
+expect.extend(matchers);
 // Debug: vérifier si le setup est exécuté dans CI
 console.info('vitest.setup.ts loaded');
 
