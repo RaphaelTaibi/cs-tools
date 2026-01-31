@@ -1,4 +1,6 @@
 import '@testing-library/jest-dom/vitest';
+// Debug: vérifier si le setup est exécuté dans CI
+console.info('vitest.setup.ts loaded');
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
