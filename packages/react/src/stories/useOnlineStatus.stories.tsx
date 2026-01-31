@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-
-
-import useOnlineStatus from '../hooks/useOnlineStatus';
-import Card from '../components/Card';
+import useOnlineStatus from '../hooks/useOnlineStatus.js';
+import Card from '../components/Card.js';
 
 const OnlineStatusStorie: React.FC = () => {
   const isOnline = useOnlineStatus();
