@@ -13,9 +13,9 @@ import {
   isObject,
   generateId
 } from '@cs-tools/core';
-import Card from '../components/Card';
-import Button from '../components/Button';
-import Input from '../components/Input';
+import Card from '../components/Card.js';
+import Button from '../components/Button.js';
+import Input from '../components/Input.js';
 
 const HelpersStorie: React.FC = () => {
   const [arrayInput, setArrayInput] = React.useState('1,2,2,3,3,4,5');

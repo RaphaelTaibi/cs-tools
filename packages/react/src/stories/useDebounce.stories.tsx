@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 
-import useDebounce from '../hooks/useDebounce';
-import Button from '../components/Button';
-import Card from '../components/Card';
-import Input from '../components/Input';
+import useDebounce from '../hooks/useDebounce.js';
+import Button from '../components/Button.js';
+import Card from '../components/Card.js';
+import Input from '../components/Input.js';
 
 const DebounceStorie: React.FC<{ delay?: number }> = ({ delay = 500 }) => {
   const [searchTerm, setSearchTerm] = React.useState('');

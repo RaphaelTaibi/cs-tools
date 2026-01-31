@@ -14,9 +14,9 @@ import {
   hasMaxLength,
   type PasswordStrength 
 } from '@cs-tools/core';
-import Card from '../components/Card';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Card from '../components/Card.js';
+import Input from '../components/Input.js';
+import Button from '../components/Button.js';
 
 const ValidatorsStorie: React.FC = () => {
   // États pour tous les champs

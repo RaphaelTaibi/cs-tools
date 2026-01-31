@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
-import useDarkMode from '../hooks/useDarkMode';
-import Button from '../components/Button';
-import Card from '../components/Card';
+import useDarkMode from '../hooks/useDarkMode.js';
+import Button from '../components/Button.js';
+import Card from '../components/Card.js';
 
 const DarkModeStorie: React.FC<{ defaultTheme?: 'light' | 'dark' | 'system' }> = ({
     defaultTheme = 'system'

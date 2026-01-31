@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 
-import useWindowSize from '../hooks/useWindowSize';
-import Card from '../components/Card';
+import useWindowSize from '../hooks/useWindowSize.js';
+import Card from '../components/Card.js';
 
 const WindowSizeStorie: React.FC = () => {
   const { width, height } = useWindowSize();

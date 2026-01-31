@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-
-
 import { 
   formatDate,
   formatCurrency,
@@ -13,8 +11,8 @@ import {
   slugify,
   truncate
 } from '@cs-tools/core';
-import Card from '../components/Card';
-import Input from '../components/Input';
+import Card from '../components/Card.js';
+import Input from '../components/Input.js';
 
 const FormattersStorie: React.FC = () => {
   const [dateInput, setDateInput] = React.useState('2024-12-25');
