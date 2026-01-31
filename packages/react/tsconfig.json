@@ -25,14 +25,14 @@
     "src/index.ts",
     "src/components/**/*",
     "src/hooks/**/*",
-    "src/stories/**/*",
-    "**/*.spec.ts",
-    "**/*.spec.tsx", 
-    "**/*.test.ts",
-    "**/*.test.tsx"
+    "src/stories/**/*"
   ],
   "exclude": [
     "node_modules",
     "dist",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }
