@@ -273,7 +273,7 @@ const ValidatorsStorie: React.FC = () => {
                   </div>
                   {passwordStrength.feedback.length > 0 && (
                     <div className="text-xs cs-text-secondary space-y-1">
-                      {passwordStrength.feedback.map((feedback, i) => (
+                      {passwordStrength.feedback.map((feedback: string, i: number) => (
                         <p key={i}>• {feedback}</p>
                       ))}
                     </div>

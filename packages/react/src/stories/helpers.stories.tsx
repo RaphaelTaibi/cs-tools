@@ -123,7 +123,7 @@ const HelpersStorie: React.FC = () => {
               />
               <ResultBox
                 label="groupBy(objects, 'category')"
-                result={groupBy(sampleObjects, item => item.category)}
+                result={groupBy(sampleObjects, (item: typeof sampleObjects[number]) => item.category)}
               />
             </div>
 
