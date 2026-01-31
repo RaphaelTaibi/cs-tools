@@ -57,7 +57,13 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      - name: Install
+      - name: Download core dist
+        uses: actions/download-artifact@v4
+        with:
+          name: core-dist
+          path: packages/core/dist
+
+      - name: Install dependencies (workspace)
         run: pnpm install --frozen-lockfile
 
       - name: Lint
@@ -96,7 +102,13 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      - name: Install
+      - name: Download core dist
+        uses: actions/download-artifact@v4
+        with:
+          name: core-dist
+          path: packages/core/dist
+
+      - name: Install dependencies (workspace)
         run: pnpm install --frozen-lockfile
         
       - name: Clean Vitest cache
