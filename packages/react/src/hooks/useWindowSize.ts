@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 
+
 /**
- * Custom hook for tracking window dimensions
- * @returns An object with width and height of the window
+ * React hook that returns the current window size.
+ * @returns {{ width: number | undefined; height: number | undefined }} An object containing the window's width and height.
+ *
+ * @example
+ * const { width, height } = useWindowSize();
  */
 export function useWindowSize() {
   const [windowSize, setWindowSize] = useState<{
@@ -21,13 +25,8 @@ export function useWindowSize() {
       });
     }
 
-    // Add event listener
     window.addEventListener('resize', handleResize);
-
-    // Call handler right away so state gets updated with initial window size
     handleResize();
-
-    // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

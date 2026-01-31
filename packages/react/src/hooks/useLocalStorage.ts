@@ -1,13 +1,28 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Interface for the useLocalStorage hook return value
+ * @template T - The type of the stored value
+ * @property value - The current value from localStorage
+ * @property setValue - Function to update the value and persist it
+ * @property removeValue - Function to remove the value from localStorage
+ */
 export interface UseLocalStorageReturn<T> {
   value: T;
   setValue: (value: T | ((prevValue: T) => T)) => void;
   removeValue: () => void;
 }
 
+/**
+ * React hook to persist a value in localStorage and keep it in sync with state.
+ * @template T - The type of the stored value
+ * @param key - The localStorage key
+ * @param initialValue - The initial value if nothing is stored
+ * @returns An object with the value, setValue, and removeValue helpers
+ * @example
+ * const { value, setValue, removeValue } = useLocalStorage('myKey', 'default');
+ */
 function useLocalStorage<T>(key: string, initialValue: T): UseLocalStorageReturn<T> {
-  // Get from local storage then parse stored json or return initialValue
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -18,10 +33,8 @@ function useLocalStorage<T>(key: string, initialValue: T): UseLocalStorageReturn
     }
   });
 
-  // Return a wrapped version of useState's setter function that persists the new value to localStorage
   const setValue = (value: T | ((prevValue: T) => T)) => {
     try {
-      // Allow value to be a function so we have the same API as useState
       const valueToStore = value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
@@ -39,7 +52,6 @@ function useLocalStorage<T>(key: string, initialValue: T): UseLocalStorageReturn
     }
   };
 
-  // Listen for changes to the localStorage key
   useEffect(() => {
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === key && e.newValue !== null) {

@@ -1,9 +1,22 @@
-// Array helpers
 
+
+/**
+ * Returns a new array with only unique values.
+ * @template T
+ * @param array - The array to deduplicate
+ * @returns A new array with unique values
+ */
 export const unique = <T>(array: T[]): T[] => {
   return [...new Set(array)];
 };
 
+/**
+ * Groups array items by a key function.
+ * @template T, K
+ * @param array - The array to group
+ * @param keyFn - Function to extract the group key
+ * @returns An object with keys and grouped arrays
+ */
 export const groupBy = <T, K extends string | number>(
   array: T[], 
   keyFn: (item: T) => K
@@ -18,6 +31,13 @@ export const groupBy = <T, K extends string | number>(
   }, {} as Record<K, T[]>);
 };
 
+/**
+ * Splits an array into chunks of a given size.
+ * @template T
+ * @param array - The array to split
+ * @param size - The chunk size
+ * @returns An array of chunked arrays
+ */
 export const chunk = <T>(array: T[], size: number): T[][] => {
   const chunks: T[][] = [];
   for (let i = 0; i < array.length; i += size) {
@@ -26,6 +46,12 @@ export const chunk = <T>(array: T[], size: number): T[][] => {
   return chunks;
 };
 
+/**
+ * Returns a new array with the elements shuffled.
+ * @template T
+ * @param array - The array to shuffle
+ * @returns A new shuffled array
+ */
 export const shuffle = <T>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -35,8 +61,13 @@ export const shuffle = <T>(array: T[]): T[] => {
   return shuffled;
 };
 
-// Object helpers
-
+/**
+ * Returns a new object without the specified keys.
+ * @template T, K
+ * @param obj - The source object
+ * @param keys - Keys to omit
+ * @returns A new object without the omitted keys
+ */
 export const omit = <T extends Record<string, any>, K extends keyof T>(
   obj: T, 
   keys: K[]
@@ -46,6 +77,13 @@ export const omit = <T extends Record<string, any>, K extends keyof T>(
   return result;
 };
 
+/**
+ * Returns a new object with only the specified keys.
+ * @template T, K
+ * @param obj - The source object
+ * @param keys - Keys to pick
+ * @returns A new object with only the picked keys
+ */
 export const pick = <T extends Record<string, any>, K extends keyof T>(
   obj: T, 
   keys: K[]
@@ -59,6 +97,12 @@ export const pick = <T extends Record<string, any>, K extends keyof T>(
   return result;
 };
 
+/**
+ * Deeply clones an object or array.
+ * @template T
+ * @param obj - The object or array to clone
+ * @returns A deep clone of the input
+ */
 export const deepClone = <T>(obj: T): T => {
   if (obj === null || typeof obj !== 'object') return obj;
   if (obj instanceof Date) return new Date(obj.getTime()) as unknown as T;
@@ -75,12 +119,22 @@ export const deepClone = <T>(obj: T): T => {
   return obj;
 };
 
-// Utility functions
-
+/**
+ * Returns a promise that resolves after a given delay.
+ * @param ms - Milliseconds to wait
+ * @returns Promise that resolves after the delay
+ */
 export const sleep = (ms: number): Promise<void> => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
+/**
+ * Returns a debounced version of a function.
+ * @template T
+ * @param func - The function to debounce
+ * @param delay - Delay in milliseconds
+ * @returns Debounced function
+ */
 export const debounce = <T extends (...args: any[]) => void>(
   func: T, 
   delay: number
@@ -92,6 +146,13 @@ export const debounce = <T extends (...args: any[]) => void>(
   };
 };
 
+/**
+ * Returns a throttled version of a function.
+ * @template T
+ * @param func - The function to throttle
+ * @param limit - Minimum time between calls in ms
+ * @returns Throttled function
+ */
 export const throttle = <T extends (...args: any[]) => void>(
   func: T, 
   limit: number
@@ -106,6 +167,11 @@ export const throttle = <T extends (...args: any[]) => void>(
   };
 };
 
+/**
+ * Generates a random alphanumeric string of a given length.
+ * @param length - Length of the generated string (default: 8)
+ * @returns Random string
+ */
 export const generateId = (length: number = 8): string => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
@@ -115,24 +181,47 @@ export const generateId = (length: number = 8): string => {
   return result;
 };
 
-// Type guards
-
+/**
+ * Type guard for string values.
+ * @param value - Value to check
+ * @returns True if value is a string
+ */
 export const isString = (value: unknown): value is string => {
   return typeof value === 'string';
 };
 
+/**
+ * Type guard for number values.
+ * @param value - Value to check
+ * @returns True if value is a number
+ */
 export const isNumber = (value: unknown): value is number => {
   return typeof value === 'number' && !isNaN(value);
 };
 
+/**
+ * Type guard for array values.
+ * @param value - Value to check
+ * @returns True if value is an array
+ */
 export const isArray = (value: unknown): value is unknown[] => {
   return Array.isArray(value);
 };
 
+/**
+ * Type guard for plain object values.
+ * @param value - Value to check
+ * @returns True if value is a plain object
+ */
 export const isObject = (value: unknown): value is Record<string, unknown> => {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 };
 
+/**
+ * Checks if a value is empty (null, undefined, empty string, array, or object).
+ * @param value - Value to check
+ * @returns True if value is empty
+ */
 export const isEmpty = (value: unknown): boolean => {
   if (value === null || value === undefined) return true;
   if (typeof value === 'string') return value.length === 0;
