@@ -197,12 +197,6 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
-      - name: Build demo & storybook
-        run: |
-          pnpm -C apps/demo-react build
-          pnpm -C packages/react build-storybook
-
-      - name: Deploy to Vercel
-        run: |
-          echo "Deploying to Vercel..."
+      - name: Build demo
+        run: pnpm -C apps/demo-react build
 
