@@ -1,84 +1,21 @@
 {
-  "name": "cs-tools-kit",
-  "version": "0.1.1",
-  "type": "module",
-  "description": "cs-tools is a modular toolkit for web developers, built with TypeScript. It includes reusable UI components, custom React hooks, and handy utility functions to speed up your development workflow.",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./styles": "./dist/style.css"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+  "name": "cs-tools-kit-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RaphaelTaibi/cs-tools.git"
-  },
-  "homepage": "https://github.com/RaphaelTaibi/cs-tools#readme",
-  "bugs": {
-    "url": "https://github.com/RaphaelTaibi/cs-tools/issues"
-  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --emitDeclarationOnly && vite build",
-    "build:types": "tsc --emitDeclarationOnly",
-    "preview": "vite preview",
-    "lint": "eslint src --ext .ts,.tsx",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "keywords": [
-    "typescript",
-    "react",
-    "hooks",
-    "utilities",
-    "components",
-    "web-development",
-    "toolkit",
-    "nextjs",
-    "angular"
-  ],
-  "author": "Taibi Raphael",
-  "license": "MIT",
-  "devDependencies": {
-    "@chromatic-com/storybook": "^4.1.1",
-    "@eslint/js": "^9.37.0",
-    "@storybook/addon-a11y": "^9.1.12",
-    "@storybook/addon-docs": "^9.1.12",
-    "@storybook/addon-onboarding": "^9.1.12",
-    "@storybook/addon-vitest": "^9.1.12",
-    "@storybook/react": "^9.1.12",
-    "@storybook/react-vite": "^9.1.12",
-    "@tailwindcss/postcss": "^4.1.14",
-    "@types/node": "^24.7.2",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "@typescript-eslint/eslint-plugin": "^8.46.1",
-    "@typescript-eslint/parser": "^8.46.1",
-    "@vitejs/plugin-react-swc": "^4.1.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.37.0",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.6.2",
-    "storybook": "^9.1.12",
-    "tailwindcss": "^4.1.14",
-    "typescript": "^5.9.3",
-    "vite": "^7.1.10",
-    "vitest": "^3.2.4"
-  },
-  "peerDependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "dev": "pnpm -C apps/demo-react dev",
+    "build": "pnpm -r build",
+    "build:react": "pnpm -C packages/react build",
+    "build:core": "pnpm -C packages/core build",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "test": "node scripts/run-tests.mjs",
+    "test:coverage": "node scripts/run-tests.mjs --coverage",
+    "storybook": "pnpm -C packages/react storybook",
+    "build-storybook": "pnpm -C packages/react build-storybook"
   }
 }

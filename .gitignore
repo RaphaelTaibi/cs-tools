@@ -122,6 +122,9 @@ dist
 # TernJS port file
 .tern-port
 
+# Github intrustion files
+.github/instructions/instru.instructions.md
+
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
