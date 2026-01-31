@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import useLocalStorage from "../lib/hooks/useLocalStorage";
-import Button from "../lib/components/Button";
-import Card from "../lib/components/Card";
-import Input from "../lib/components/Input";
+import useLocalStorage from "../hooks/useLocalStorage.js";
+import Button from "../components/Button.js";
+import Card from "../components/Card.js";
+import Input from "../components/Input.js";
 
 const LocalStorageStorie: React.FC<{ storageKey: string; initialValue?: string }> = ({
     storageKey = "stories-key",
