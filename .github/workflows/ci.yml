@@ -93,14 +93,7 @@ jobs:
 
       - name: Install
         run: pnpm install --frozen-lockfile
-
-      - name: list files in packages/react
-        run: |
-          ls -l packages/react
-          ls -l packages/react/src
-          ls -l packages/react/src/components
-          ls -l packages/react/src/hooks
-
+        
       - name: Clean Vitest cache
         run: pnpm -C packages/react exec vitest --clearCache
 

@@ -1,11 +1,11 @@
 // Export all components
-export { default as Button } from './Button';
-export { default as Card } from './Card';
-export { default as Input } from './Input';
-export { default as Spinner } from './Spinner';
+export { default as Button } from './Button.js';
+export { default as Card } from './Card.js';
+export { default as Input } from './Input.js';
+export { default as Spinner } from './Spinner.js';
 
 // Export types
-export type { ButtonProps } from './Button';
-export type { CardProps } from './Card';
-export type { InputProps } from './Input';
-export type { SpinnerProps } from './Spinner';
+export type { ButtonProps } from './Button.js';
+export type { CardProps } from './Card.js';
+export type { InputProps } from './Input.js';
+export type { SpinnerProps } from './Spinner.js';
