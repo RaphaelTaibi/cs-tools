@@ -9,14 +9,15 @@ import {
   useDarkMode,
   useDebounce,
   useWindowSize,
-} from '@cs-tools/react';
+} 
+from '@cs-tools/react';
 import {
   validatePasswordStrength,
   isValidEmail,
   formatCurrency,
   formatDate,
 }
-  from '@cs-tools/core';
+from '@cs-tools/core';
 
 
 function App() {
