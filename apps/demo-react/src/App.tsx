@@ -9,11 +9,17 @@ import {
   useDarkMode,
   useDebounce,
   useWindowSize,
+} from '@cs-tools/react';
+import {
   validatePasswordStrength,
   isValidEmail,
   formatCurrency,
   formatDate,
-} from '@cs-tools/react'; function App() {
+}
+  from '@cs-tools/core';
+
+
+function App() {
   const toggle = useToggle(false);
   const { value: name, setValue: setName } = useLocalStorage('demoName', '');
   const darkMode = useDarkMode();
